@@ -115,8 +115,18 @@ function openAtlas(opt) {
     count: head.shape[0],
     captions: () => json('captions.json'),
     subjects: () => json('objects.json'),
-    // 元の番号（row_id）。sample では元データでの番号を返す
+    // 元の番号（全データでの番号）。見本でも全データでも、同じ絵は同じ番号で呼べる
     originalId: (i) => (origIds ? origIds[i] : i),
+    // 元の番号 → このデータの中での位置
+    resolve(id) {
+      if (!origIds) return id
+      const k = origIds.indexOf(id)
+      if (k < 0)
+        throw new Error(
+          `番号 ${id} は見本に入っていません。全データを取るには \`npm run pixel -- fetch\` を実行してください。`,
+        )
+      return k
+    },
     tokens(i) {
       if (!(i >= 0 && i < head.shape[0]))
         throw new Error(`番号 ${i} は範囲外です（0〜${head.shape[0] - 1}）`)
@@ -433,13 +443,13 @@ async function main() {
     if (opt.json) {
       console.log(
         JSON.stringify(
-          shown.map((i) => ({ id: i, subject: subs[i], caption: caps[i] })),
+          shown.map((i) => ({ id: atlas.originalId(i), subject: subs[i], caption: caps[i] })),
           null,
           2,
         ),
       )
     } else {
-      for (const i of shown) console.log(`${i}\t${subs[i]}\t${caps[i]}`)
+      for (const i of shown) console.log(`${atlas.originalId(i)}\t${subs[i]}\t${caps[i]}`)
     }
     process.stderr.write(
       `${hits.length.toLocaleString()} 件見つかりました（${shown.length} 件を表示）\n`,
@@ -461,6 +471,7 @@ async function main() {
       ids = pos.map(Number)
       if (!ids.length || ids.some((n) => !Number.isInteger(n)))
         throw new Error('番号を入れてください（例: png 12 34）')
+      ids = ids.map((n) => atlas.resolve(n))
     }
     const scale = Number(opt.scale ?? 8)
     const outDir = path.resolve(opt.out ?? '.')
@@ -468,7 +479,7 @@ async function main() {
     const subs = atlas.subjects()
     for (const id of ids) {
       const safe = subs[id].replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '')
-      const file = path.join(outDir, `${id}-${safe}.png`)
+      const file = path.join(outDir, `${atlas.originalId(id)}-${safe}.png`)
       fs.writeFileSync(file, composeSheet(atlas, [id], { scale, cols: 1 }))
       console.log(file)
     }
