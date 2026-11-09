@@ -11,6 +11,7 @@ allowed-tools: Read, Glob, Grep, Bash(npm run pixel:*), Bash(npm run astryx:*), 
   - 書き出し先の指定がなければ `./sprites` に書き出す
 - UI部品: `npm run astryx -- search <語>` と `npm run astryx -- component <名前>` を使う
   - 初回で `library/astryx/node_modules` が無ければ、先に `npm run library:setup` を実行する
+- 全データや元コードが無いときは `npm run library:restore` で控えから戻す（ネット不要）
 - 使い方の詳細は `library/README.md` を読む
 
 $ARGUMENTS

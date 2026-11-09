@@ -6,3 +6,6 @@ library/pixel-art/data
 library/pixel-art/sample
 library/astryx/source
 library/astryx/catalog
+library/archive/pixel-art
+library/archive/astryx
+library/archive/SHA256SUMS

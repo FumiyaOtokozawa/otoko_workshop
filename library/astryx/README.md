@@ -53,7 +53,10 @@ npm run astryx:demo
 | `demo/`                   | 部品を並べた見本ページ。7 テーマを切り替えられる |
 | `fetch-source.mjs`        | 元のコード一式を `source/` に取ってくる命令      |
 
-元のコードを読みたいときだけ、次を実行します（約 380MB）。
+Astryx の配布パッケージは `../archive/astryx/npm/` の控えから入ります。
+npm から消されても入れ直せます。
+
+元のコードを読みたいときだけ、次を実行します（約 380MB）。控えから戻すので、ネットは要りません。
 
 ```bash
 node library/astryx/fetch-source.mjs

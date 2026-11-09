@@ -1,0 +1,4 @@
+# 素材の控え（分割したファイル・配布パッケージ）は中身を比べない・改行を変えない
+library/archive/**/*.0[0-9][0-9] binary
+library/archive/**/*.tgz binary
+library/archive/SHA256SUMS -text

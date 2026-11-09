@@ -28,4 +28,13 @@ UI部品の一覧を見る（初回だけ `npm run library:setup` が必要）:
 npm run astryx -- component --list
 ```
 
+## 元のサイトが消えても戻せます
+
+外から取ってきた物は、すべて `archive/` に控えがあります。
+元のサイトが非公開になっても、次の命令で戻せます。
+
+```bash
+npm run library:restore
+```
+
 くわしくは各フォルダの README を見てください。

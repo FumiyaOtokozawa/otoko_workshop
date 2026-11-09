@@ -23,7 +23,7 @@ const CELLS = SIZE * SIZE
 
 // ───────── 引数の読み取り ─────────
 // 値を取らないオプション（--sample sheet の sheet を値と取り違えないため）
-const FLAGS = new Set(['sample', 'subject', 'json', 'force', 'keep', 'help'])
+const FLAGS = new Set(['sample', 'subject', 'json', 'force', 'keep', 'help', 'online'])
 
 function parseArgs(argv) {
   const pos = []
@@ -369,7 +369,7 @@ const HELP = `ドット絵の呼び出し道具（16×16 ピクセル・透明�
 
 命令:
   info                       いま使っているデータの枚数と場所を表示
-  fetch                      全 1,409,404 枚を取ってくる（約260MB・数分）
+  fetch                      全 1,409,404 枚を戻す（手元の控えから。--online でネットから）
   subjects [語]              種類（題材）の一覧。語を入れると絞り込む
   search <語...>             説明文と題材から探す（英語。例: sword fire）
   png <番号...>              PNG で書き出す
@@ -401,9 +401,16 @@ async function main() {
     fs.mkdirSync(FULL_DIR, { recursive: true })
     const zip = path.join(FULL_DIR, 'atlas.zip')
     if (!fs.existsSync(zip) || opt.force) {
-      process.stderr.write(`取得元: ${ZIP_URL}\n`)
-      await download(ZIP_URL, zip + '.part')
-      fs.renameSync(zip + '.part', zip)
+      // まず手元の控え（library/archive/）から戻す。元のサイトが消えていても動く
+      const archive = await import('../archive/archive.mjs')
+      if (!opt.online && archive.hasArchive('pixel')) {
+        process.stderr.write('取得元: 手元の控え（library/archive/pixel-art/）\n')
+        archive.joinParts('pixel', zip)
+      } else {
+        process.stderr.write(`取得元: ${ZIP_URL}\n`)
+        await download(ZIP_URL, zip + '.part')
+        fs.renameSync(zip + '.part', zip)
+      }
     }
     await unzip(zip, FULL_DIR)
     if (!opt.keep) fs.rmSync(zip)
