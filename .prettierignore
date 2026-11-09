@@ -1,3 +1,8 @@
 dist
 node_modules
 package-lock.json
+# 素材庫のデータ（自動で作った物なので整形しない）
+library/pixel-art/data
+library/pixel-art/sample
+library/astryx/source
+library/astryx/catalog

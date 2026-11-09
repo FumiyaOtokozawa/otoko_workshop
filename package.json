@@ -16,7 +16,11 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "verify": "npm run format:check && npm run typecheck && npm run test && vite build",
-    "doctor": "node scripts/doctor.mjs"
+    "doctor": "node scripts/doctor.mjs",
+    "pixel": "node library/pixel-art/pixel.mjs",
+    "library:setup": "npm ci --prefix library/astryx --ignore-scripts",
+    "astryx": "npm run --silent --prefix library/astryx astryx --",
+    "astryx:demo": "npm run --prefix library/astryx demo"
   },
   "dependencies": {
     "react": "^18.3.1",

@@ -1,0 +1,15 @@
+/* 読み込む順番に意味がある: reset → 部品 → テーマ */
+@import '@astryxdesign/core/reset.css';
+@import '@astryxdesign/core/astryx.css';
+@import '@astryxdesign/theme-neutral/theme.css';
+@import '@astryxdesign/theme-butter/theme.css';
+@import '@astryxdesign/theme-chocolate/theme.css';
+@import '@astryxdesign/theme-matcha/theme.css';
+@import '@astryxdesign/theme-stone/theme.css';
+@import '@astryxdesign/theme-gothic/theme.css';
+@import '@astryxdesign/theme-y2k/theme.css';
+
+body {
+  margin: 0;
+  font-family: var(--font-family-body);
+}

@@ -7,3 +7,7 @@ dist/
 !.env.example
 coverage/
 .claude/settings.local.json
+
+# 素材庫（library/）の大きいデータ。取得命令でいつでも戻せるので GitHub には置かない
+library/pixel-art/data/
+library/astryx/source/
