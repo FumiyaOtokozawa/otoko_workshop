@@ -1,0 +1,110 @@
+{
+  "apiVersion": 1,
+  "type": "hook.list",
+  "package": "@astryxdesign/core",
+  "data": {
+    "detail": "names",
+    "components": {
+      "Accessibility": [
+        "useAnnounce"
+      ],
+      "Focus": [
+        "useCombobox",
+        "useFocusTrap",
+        "useGridFocus",
+        "useIndicatorFocusRing",
+        "useKeyboardHint",
+        "useListFocus",
+        "useMultiCombobox",
+        "useTreeFocus",
+        "useTypeahead"
+      ],
+      "Interaction": [
+        "useClickableContainer",
+        "useClipboard",
+        "useCollapsible",
+        "useContainerReveal",
+        "useDragToSnapPoints",
+        "useHotkeys",
+        "useHoverCard",
+        "useInputContainer",
+        "useInputStatusIcon",
+        "useInteractiveRole",
+        "useLayer",
+        "useLightbox",
+        "useLongPress",
+        "useMenuPress",
+        "useOverlay",
+        "usePopover",
+        "useToast",
+        "useTooltip"
+      ],
+      "Layout": [
+        "useAppShellMobile",
+        "useOverflow",
+        "useResizable",
+        "useScrollLock",
+        "useScrollOverflow",
+        "useScrollableArea"
+      ],
+      "Media": [
+        "useImageMode",
+        "useMediaQuery"
+      ],
+      "Motion & gestures": [
+        "useAnimatedLayout",
+        "useAnimator",
+        "useEntryAnimation",
+        "usePanGesture",
+        "usePressFeedback",
+        "useSnapPaging"
+      ],
+      "Navigation": [
+        "useOutlineFromMarkdown"
+      ],
+      "Streaming": [
+        "useStreamingText"
+      ],
+      "Utilities": [
+        "useCalendarDays",
+        "useCollator",
+        "useIcon",
+        "useLinkComponent",
+        "useLocale",
+        "useTableSortableState",
+        "useTranslator"
+      ],
+      "Utility": [
+        "useDevWarning",
+        "useMergedRefs",
+        "useTheme"
+      ],
+      "Other": [
+        "useImperativeAlertDialog",
+        "useImperativeDialog",
+        "useTableColumnResize",
+        "useTableColumnSettings",
+        "useTableFilterState",
+        "useTableFiltering",
+        "useTableGroupedRows",
+        "useTablePagination",
+        "useTableRowExpansion",
+        "useTableRowIndex",
+        "useTableRowStatus",
+        "useTableSelection",
+        "useTableSelectionState",
+        "useTableSortable",
+        "useTableStickyColumns",
+        "useTableTreeData",
+        "useTableTreeState"
+      ]
+    }
+  },
+  "meta": {
+    "answeredBy": {
+      "cli": "0.7.11",
+      "core": "0.7.11",
+      "copy": "project"
+    }
+  }
+}

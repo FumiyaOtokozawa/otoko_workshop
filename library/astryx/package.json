@@ -1,0 +1,30 @@
+{
+  "name": "otoko-library-astryx",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Meta の UI部品集 Astryx を、版を固定して保存しておく箱",
+  "scripts": {
+    "astryx": "node node_modules/@astryxdesign/cli/clients/cli/bin/astryx.mjs",
+    "demo": "vite",
+    "demo:build": "vite build"
+  },
+  "dependencies": {
+    "@astryxdesign/core": "file:../archive/astryx/npm/astryxdesign-core-0.7.11.tgz",
+    "@astryxdesign/theme-butter": "file:../archive/astryx/npm/astryxdesign-theme-butter-0.7.11.tgz",
+    "@astryxdesign/theme-chocolate": "file:../archive/astryx/npm/astryxdesign-theme-chocolate-0.7.11.tgz",
+    "@astryxdesign/theme-gothic": "file:../archive/astryx/npm/astryxdesign-theme-gothic-0.7.11.tgz",
+    "@astryxdesign/theme-matcha": "file:../archive/astryx/npm/astryxdesign-theme-matcha-0.7.11.tgz",
+    "@astryxdesign/theme-neutral": "file:../archive/astryx/npm/astryxdesign-theme-neutral-0.7.11.tgz",
+    "@astryxdesign/theme-stone": "file:../archive/astryx/npm/astryxdesign-theme-stone-0.7.11.tgz",
+    "@astryxdesign/theme-y2k": "file:../archive/astryx/npm/astryxdesign-theme-y2k-0.7.11.tgz",
+    "@stylexjs/stylex": "0.19.1",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@astryxdesign/cli": "file:../archive/astryx/npm/astryxdesign-cli-0.7.11.tgz",
+    "@vitejs/plugin-react": "4.7.0",
+    "vite": "6.4.6"
+  }
+}
